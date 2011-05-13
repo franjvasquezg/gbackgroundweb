@@ -1,0 +1,49 @@
+#!/usr/bin/perl
+use strict;
+use Proc::PID::File;
+
+my ($configurando_pid, $tipo_de_cambio, $imagen, $segundos, $web, $wget_cadena);
+my $home_directory = $ENV{HOME};
+my $path = $home_directory . '/.gbackground_web/';
+my $dir_datos = $path . "datos_programa";
+
+open(ARCHIVO_PID, "$dir_datos") || die "No pudo abrirse: $!";
+$web = <ARCHIVO_PID>;
+$tipo_de_cambio = <ARCHIVO_PID>;
+$tipo_de_cambio =~ s/\s/\ /g;
+$imagen = $path.<ARCHIVO_PID>;
+$segundos = <ARCHIVO_PID>;
+close(ARCHIVO_PID);
+
+$wget_cadena = "wget -O ".$imagen. " ". $web;
+$wget_cadena =~ s/\s/\ /g;
+##print $wget_cadena;
+
+if($tipo_de_cambio eq "Escalado ") {$tipo_de_cambio='scaled';}
+elsif ($tipo_de_cambio eq "Rellenar la Pantalla ") {$tipo_de_cambio='stretched';}
+elsif ($tipo_de_cambio eq "Fondo de Pantalla ") {$tipo_de_cambio='wallpaper';}
+elsif ($tipo_de_cambio eq "Centrado ") {$tipo_de_cambio='centered';}
+else {$tipo_de_cambio='stretched';}
+
+$segundos= $segundos * 3600;
+
+sub crear_demonio {
+	$configurando_pid = Proc::PID::File->running(dir => "$path", name => "gbackground_web" );
+	while(1){
+		system("$wget_cadena");
+		sleep (2);
+		system("rm \"$path\"*.*.*");
+		system("gconftool-2 -t str -s /desktop/gnome/background/picture_options $tipo_de_cambio");
+		system("gconftool-2 -t str -s /desktop/gnome/background/picture_filename $imagen");
+		sleep($segundos);
+	}
+}
+
+if(-e $path) {
+	&crear_demonio;
+}
+else {
+	mkdir("$path", 0777);
+	chmod(0777, "$path");
+	&crear_demonio;
+}

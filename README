@@ -1,3 +1,20 @@
+	gbackgroundweb
+
+¿Cómo utilizarlo?
+
+Si desea utilizar este programa debes de ejecutar secuencias de comandos gbackground. Para hacer esto
+Existen dos formas:
+
+$. / gbackground
+
+o:
+
+Gbackground $ perl
+
+Este programa fue realizado en Perl usando Gtk2
+
+
+
 Debes poner una descripción larga tu software aquí. Leíste bien, de tu software,
 no del paquete. Es decir, aquí no va nada de "aptitude install paquete" en la
 descripción de la instalación, probablemente sea algo como "python setup.py" o

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=gbackgroundweb
+Name[es]=gbackgroundweb (Iniciar - Fondo de Pantalla)
+Comment=Setup the compatibility layer for Windows programs
+Comment[es]=Inicia el control del fondo del escritorio
+Exec=/usr/share/gbackground-web/gbackgroundD_web
+Icon=/usr/share/pixmaps/gbackgroundweb.xpm
+Terminal=false
+Type=Application
+Encoding=UTF-8
+Categories=Application;System;

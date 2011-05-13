@@ -1,0 +1,191 @@
+#!/usr/bin/perl
+use strict;
+use Gtk2 -init;
+use Gtk2::GladeXML;
+use UI::Dialog;
+use UI::Dialog::Backend::Zenity;
+use Switch;
+
+## Declarando Variables
+
+my($programa, $ventana_principal, $fondo_path, $boton_salir, $path_images, $pid_programa, $etiqueta_numero_de_segundos, $numero_de_segundos, $label_estado, $ventana_acerca_de, $acerca_de, $ventana_preferencias, $url, $connection, $dir_datos, $imagen, $prueba, $dir_fondos, $imagen_nombre, $imagen_nombre_datos, $horas, $horas_dato, $tipo_fondo, $datos_cargados);
+
+my(@estado, $home_directory, $parte_del_path, $path, $path_pid, $nombre_ultimo_fondo);
+
+my ($web_configuracion, $tipo_de_cambio_configuracion, $imagen_configuracion, $segundos_configuracion);
+
+## De la ventana de preferencias
+my($deja_ultimo_fondo_widget, $tipo_de_cambio_widget, $tipo_de_cambio, $cambio_definitivo);
+my $tipo_fondo_defecto = 1;
+
+&basura;
+
+## Cargando todo el UI::Dialog
+my $ventanas_dialogs = new UI::Dialog::Backend::Zenity(title => "Gbackground_Web",
+						       height => 45, width => 50, 
+						       listheight => 5,
+						       order => [ 'zenity', 'xdialog', 'gdialog']
+						       );
+
+# Para cuando voy a empaquetar
+
+if (-e 'glade/gbackground.glade'){
+	$programa = Gtk2::GladeXML->new('glade/gbackground_web.glade');
+} else {
+	$programa = Gtk2::GladeXML->new('/usr/share/gbackground-web/gbackground_web.glade');
+}
+
+# Cargando Ventanas
+
+&cargar_widgets;
+
+# Signals
+$programa->signal_autoconnect_from_package('main');
+
+## Verificando el estado del programa
+
+&verificando_estado;
+
+Gtk2->main;
+
+## Funciones ##
+sub basura {
+	@estado = ("<span foreground=\"blue\">Corriendo</span>", "<span foreground=\"red\">Detenido</span>");
+	$home_directory = $ENV{HOME};
+	$path_pid = $home_directory . "/.gbackground_web" . "/gbackground_web.pid";
+	$dir_fondos =  $home_directory . "/.gbackground_web/";
+        $dir_datos = $dir_fondos . "datos_programa";
+}
+sub cargar_widgets {
+	$ventana_principal = $programa->get_widget('ventana_principal');
+	$label_estado = $programa->get_widget('label_estado');
+	$ventana_acerca_de = $programa->get_widget('Acerca_de');
+	$acerca_de = $programa->get_widget('acerca_de');
+	$deja_ultimo_fondo_widget = $programa->get_widget('ventana_preferencias_fondo');
+	$tipo_de_cambio_widget = $programa->get_widget('combobox1');
+	$url = $programa->get_widget('url');
+	$imagen_nombre = $programa->get_widget('nombre_fondo');
+	$horas = $programa->get_widget('horas');
+	$tipo_fondo=$programa->get_widget('tipo_fondo'); 
+ 	$tipo_fondo->set_active($tipo_fondo_defecto);
+$datos_cargados= $programa->get_widget('label_configuracion');
+}
+
+sub verificando_estado {
+	if(-e $path_pid){
+	        $label_estado->set_markup("@estado[0]");
+	}else{
+	        $label_estado->set_markup("@estado[1]");
+	}
+
+        if(-e $dir_datos){
+		open(ARCHIVO_PID, "$dir_datos") || die "No pudo abrirse: $!";
+		$web_configuracion = <ARCHIVO_PID>;
+		$tipo_de_cambio_configuracion = <ARCHIVO_PID>;
+		$imagen_configuracion = $path.<ARCHIVO_PID>;
+		$segundos_configuracion = <ARCHIVO_PID>;
+		close(ARCHIVO_PID);
+
+   		$datos_cargados->set_markup ("<span foreground=\"blue\">Datos establecidos: (guardados)\n Web:<span foreground=\"red\"> $web_configuracion</span> Archivo: <span foreground=\"red\">$imagen_configuracion</span> Modo: <span foreground=\"red\">$tipo_de_cambio_configuracion</span> Tiempo (horas):<span foreground=\"red\"> $segundos_configuracion</span></span>");
+
+	}else{
+		$datos_cargados->set_markup("<span foreground=\"red\">No se han preestablecido los datos</span>");
+  	}
+}
+
+sub on_boton_iniciar_clicked {
+	$path_images = $url->get_text;
+	$imagen_nombre_datos = $imagen_nombre ->get_text;
+	$horas_dato = $horas ->get_text;
+	$cambio_definitivo = $tipo_fondo->get_active_text;
+
+##if ($cambio_definitivo == 'i') {$cambio_definitivo= 'stretched';}	
+	$imagen = $dir_fondos . $imagen_nombre_datos;
+
+	if(-e $dir_fondos) {
+	}
+	else {
+        	mkdir("$dir_fondos", 0777);
+        	chmod(0777, "$dir_fondos");
+	}
+
+		&parar;
+
+		##Creo el archivo
+		system("rm \"$dir_datos\""); 
+		system("echo \"$path_images\" >> \"$dir_datos\"");
+		system("echo \"$cambio_definitivo\" >> \"$dir_datos\"");
+		system("echo \"$imagen_nombre_datos\" >> \"$dir_datos\"");
+		system("echo \"$horas_dato\" >> \"$dir_datos\"");
+                sleep 1;
+
+		if(-e './gbackgroundD_web'){
+			system("perl ./gbackgroundD_web \&");
+		} else {
+			system("perl /usr/share/gbackground-web/gbackgroundD_web \&");
+		}
+		sleep 2; # Esto es por que muchas veces tarda en crear el gbackground.pid
+		$label_estado->set_markup("@estado[0]") if(-e $path_pid);
+		$datos_cargados->set_markup ("<span foreground=\"blue\">Datos establecidos (guardados):\n Web:<span foreground=\"red\"> $path_images</span>\nArchivo: <span foreground=\"red\">$imagen_nombre_datos</span>\nModo: <span foreground=\"red\">$cambio_definitivo</span>\nTiempo (horas):<span foreground=\"red\">$horas_dato</span></span>") if(-e $dir_datos);
+
+}
+sub parar {
+	if(-e "$path_pid"){
+		open(ARCHIVO_PID, "$path_pid");
+		while(<ARCHIVO_PID>){
+			$pid_programa = $_;
+		}
+	system("kill -9 $pid_programa");
+	system("rm -f $path_pid");
+	&verificando_estado;
+	}
+	system("echo \"$path_pid\"");
+}
+
+sub on_boton_parar_clicked {
+	if(-e "$path_pid"){
+		open(ARCHIVO_PID, "$path_pid");
+		while(<ARCHIVO_PID>){
+			$pid_programa = $_;
+		}
+		system("kill -9 $pid_programa");
+		system("rm -f $path_pid");
+		$ventanas_dialogs->msgbox(title => "Daemon Gbackground", text => 'El programa ha sido detenido satisfactoriamente'); 
+		$ventanas_dialogs->error(title => 'Error!!', text => 'Error, no fue posible detenerlo. Probablemente no esta corriendo') if(-e "$path_pid");
+	}else{
+		$ventanas_dialogs->error(title => 'Error!!', text => 'El programa <b>no</b> esta corriendo');	
+	}
+	&verificando_estado;
+}
+
+sub on_ventana_preferencias_boton_aceptar_clicked {
+	##$deja_ultimo_fondo = $deja_ultimo_fondo_widget->get_active;
+	$cambio_definitivo = $tipo_de_cambio_widget->get_active_text();
+	$ventana_preferencias->hide;
+}
+
+## Para que cuando cierren las ventanas y las vuelvan a abrir no desaparezcan
+sub on_acerca_de_delete_event {
+    my $w = shift;
+    $w->hide;
+    1; 
+}
+
+sub on_ventana_preferencias_delete_event {
+    my $w = shift;
+    $w->hide;
+    1; 
+}
+
+sub on_ventana_principal_delete_event {Gtk2->main_quit;}
+sub on_boton_salir_clicked {Gtk2->main_quit;}
+sub on_quit1_activate {Gtk2->main_quit;}
+sub on_salir1_activate {Gtk2->main_quit;}
+sub on_acerca_de1_activate {$acerca_de->present;}
+sub on_preferencias1_activate {
+	my $valor = $tipo_de_cambio_widget->set_active("1");
+	$ventana_preferencias->show_all;
+}
+sub on_ventana_preferencias_boton_cancelar_clicked {$ventana_preferencias->hide;}
+sub on_acerca_de_close {$acerca_de->hide;}
+sub on_acerca_de_response { $acerca_de->hide;}

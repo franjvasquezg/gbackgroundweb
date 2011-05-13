@@ -1,26 +1,33 @@
 #!/bin/bash -e
 #
 # ==============================================================================
-# PAQUETE: canaima-fondo-institucional
-# ARCHIVO: postrm
-# DESCRIPCIÓN: Revierte los cambios hechos por el paquete en los scripts del
-#              mantenedor, de forma tal de asegurarse que el sistema quede
-#              como estaba antes de su instalación.
+# PAQUETE: gbackgroundweb
+# ARCHIVO: postinst
+# DESCRIPCIÓN: Fondos de pantallas institucional.
 # COPYRIGHT:
-#  (C) 2011 Francisco Vasquez Guerrero <fvasquez@cnti.gob.ve>
+#  (C) Alejandro Garrido Mota <garridomota@gmail.com>
+#  (C) Carlos David Marrero <cdmarrero2040@gmail.com>, 
+#  (C) 2010 Francisco Javier Vásquez Guerrero <franjvasquezg@gmail.com>
+#  (C) 2010 Luis Alejandro Martínez Faneyth <martinez.faneyth@gmail.com>
+#  (C) 2010 Carlos Alejandro Guerrero Mora <guerrerocarlos@gmail.com>
+#
 # LICENCIA: GPL3
 # ==============================================================================
 #
 # Este programa es software libre. Puede redistribuirlo y/o modificarlo bajo los
 # términos de la Licencia Pública General de GNU (versión 3).
 
+set -e
+# Automatically added by dh_installmenu
+if [ -x "`which update-menus 2>/dev/null`" ]; then update-menus ; fi
+# End automatically added section
+
 case ${1} in
 
 	purge|remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
 
-        # Aquí va lo que el paquete debe configurar/crear/borrar después de
-        # removerse. Lenguaje a usar: BASH.
-
+	rm -rf /usr/share/gbackground-web
+	rm -rf /etc/xdg/autostart/gbackgroundweb.desktop	
 	;;
 
 	*)
@@ -34,3 +41,5 @@ esac
 #DEBHELPER#
 
 exit 0
+
+

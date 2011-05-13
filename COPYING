@@ -1,6 +1,15 @@
 Derechos de autor:
+	
+	This package was debianized by Alejandro Garrido Mota <garridomota@gmail.com> on
+	Sun, 10 Sep 2006 21:45:19 -0400.
 
-    Copyright (C) 2011 Francisco Vasquez Guerrero
+	It was downloaded from <http://www.mogaal.com/gbackground>
+
+	Upstream Author: Alejandro Garrido Mota <garridomota@gmail.com>
+
+	Copyright (C) 2006, Alejandro Garrido Mota <garridomota@gmail.com>
+
+    	Copyright (C) 2011 Francisco Vasquez Guerrero <franjvasquezg@gmail.com>
 
 Licencia:
 
@@ -16,3 +25,5 @@ Licencia:
 
     You should have received a copy of the GNU General Public License
     along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+

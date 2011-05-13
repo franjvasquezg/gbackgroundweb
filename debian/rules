@@ -27,4 +27,4 @@
 # donde finalmente se hace el paquete.
 
 override_dh_auto_install:
-	$(MAKE) DESTDIR=$(CURDIR)/debian/canaima-fondo-institucional install
+	$(MAKE) DESTDIR=$(CURDIR)/debian/gbackgroundweb install

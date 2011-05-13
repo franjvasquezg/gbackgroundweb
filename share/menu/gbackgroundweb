@@ -1,0 +1,2 @@
+?package(gbackground):needs="X11" section="Apps/Tools"\
+  title="gbackgroundweb" command="/usr/bin/gbackground_web"

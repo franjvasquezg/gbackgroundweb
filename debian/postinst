@@ -1,44 +1,25 @@
 #!/bin/bash -e
 #
 # ==============================================================================
-# PAQUETE: canaima-fondo-institucional
+# PAQUETE: gbackgroundweb
 # ARCHIVO: postinst
-# DESCRIPCIÓN: Configura el sistema despues la instalación del paquete.
+# DESCRIPCIÓN: Fondos de pantallas institucional.
 # COPYRIGHT:
-#  (C) 2011 Francisco Vasquez Guerrero <fvasquez@cnti.gob.ve>
+#  (C) Alejandro Garrido Mota <garridomota@gmail.com>
+#  (C) Carlos David Marrero <cdmarrero2040@gmail.com> 
+#  (C) 2010 Francisco Javier Vásquez Guerrero <franjvasquezg@gmail.com>
+#  (C) 2010 Luis Alejandro Martínez Faneyth <martinez.faneyth@gmail.com>
+#  (C) 2010 Carlos Alejandro Guerrero Mora <guerrerocarlos@gmail.com>
+#
 # LICENCIA: GPL3
 # ==============================================================================
 #
 # Este programa es software libre. Puede redistribuirlo y/o modificarlo bajo los
 # términos de la Licencia Pública General de GNU (versión 3).
 
-PKG="canaima-fondo-institucional"
-
-case ${1} in
-
-	configure)
-
-        # Aquí va lo que el paquete debe configurar/crear/borrar después de
-        # instalarse. Lenguaje a usar: BASH.
-
-	;;
-
-        abort-upgrade|abort-remove|abort-deconfigure)
-
-        # Aquí va lo que el paquete debe configurar/crear/borrar en caso
-        # de abortarse la instalación. Lenguaje a usar: BASH.
-
-        ;;
-
-        *)
-
-                echo "postinst no reconoce el argumento '"${1}"'" >&2
-                exit 1
-
-        ;;
-
-esac
-
-#DEBHELPER#
-
-exit 0
+set -e
+# Automatically added by dh_installmenu
+if [ "$1" = "configure" ] && [ -x "`which update-menus 2>/dev/null`" ]; then
+	update-menus
+fi
+# End automatically added section
