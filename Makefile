@@ -83,10 +83,10 @@ uninstall:
 # se creó en el install
 
 	rm -rf $(DESTDIR)/etc/xdg/autostart/gbackgroundweb.desktop
-        rm -rf $(DESTDIR)/usr/bin/gbackground_web
-        rm -rf $(DESTDIR)/usr/share/gbackground-web/
-        rm -rf $(DESTDIR)/usr/share/pixmaps/
-        rm -rf $(DESTDIR)/usr/share/menu/
+	rm -rf $(DESTDIR)/usr/bin/gbackground_web
+	rm -rf $(DESTDIR)/usr/share/gbackground-web/
+	rm -rf $(DESTDIR)/usr/share/pixmaps/
+	rm -rf $(DESTDIR)/usr/share/menu/
 
 
 clean:
