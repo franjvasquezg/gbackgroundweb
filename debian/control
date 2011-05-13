@@ -8,5 +8,4 @@ Section: gnome
 Priority: optional
 Homepage: http://www.mogaal.com/gbackground
 Description: Programa para cambiar periódicamente el fondo de GNOME
- Este programa le permite cambiar periódicamente el fondo de GNOME
- en intervalos de un segundo, que utiliza las herramientas de GNOME para hacer esto, El usuario indica el directorio de origen de las imágenes, Este programa  se realizó con Gtk2 y Perl.
+ Este programa le permite cambiar periódicamente el fondo de GNOME en intervalos de un segundo que utiliza las herramientas de GNOME para hacer esto, El usuario indica el directorio de origen de las imágenes, Este programa  se realizó con Gtk2 y Perl.
