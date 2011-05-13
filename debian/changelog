@@ -2,5 +2,6 @@ gbackgroundweb (1.0) unstable; urgency=low
 
   * Versión inicial de gbackgroundweb para Canaima GNU/Linux
   * [3553595] primera versión
+  * [d4f06f8] primera versión
 
- -- Francisco Vasquez Guerrero <franjvasquezg@gmail.com>  Fri, 13 May 2011 11:28:43 -0430
+ -- Francisco Vasquez Guerrero <franjvasquezg@gmail.com>  Fri, 13 May 2011 11:31:54 -0430
