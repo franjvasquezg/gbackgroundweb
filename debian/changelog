@@ -1,3 +1,9 @@
+gbackgroundweb (1.2) unstable; urgency=low
+
+  * [eb808cc] corriendo error en lanzador
+
+ -- Francisco Vasquez Guerrero <franjvasquezg@gmail.com>  Thu, 19 May 2011 18:47:20 -0430
+
 gbackgroundweb (1.1) unstable; urgency=low
 
   * [01a029f] nuevo lanzador para los nuevos usuario
