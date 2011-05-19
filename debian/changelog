@@ -1,3 +1,9 @@
+gbackgroundweb (1.3) unstable; urgency=low
+
+  * [16121a3] agregando ruta por omsión de fondo de pantalla
+
+ -- Francisco Vasquez Guerrero <franjvasquezg@gmail.com>  Thu, 19 May 2011 19:05:12 -0430
+
 gbackgroundweb (1.2) unstable; urgency=low
 
   * [eb808cc] corriendo error en lanzador
