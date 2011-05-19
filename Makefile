@@ -65,8 +65,10 @@ install:
 	mkdir -p $(DESTDIR)/usr/bin/
 	mkdir -p $(DESTDIR)/usr/share/gbackground-web/
 	mkdir -p $(DESTDIR)/usr/share/pixmaps/
-	mkdir -p $(DESTDIR)/usr/share/menu/
-	
+	mkdir -p $(DESTDIR)/usr/share/menu/	
+	mkdir -p $(DESTDIR)/usr/share/applications/
+	mkdir -p $(DESTDIR)/etc/skel/.local/share/applications/
+
 	cp -r etc/xdg/autostart/gbackgroundweb.desktop $(DESTDIR)/etc/xdg/autostart/
 	cp -r bin/gbackground_web $(DESTDIR)/usr/bin/
 	cp -r share/gbackground-web/canaima-vector-miniatura.png $(DESTDIR)/usr/share/gbackground-web/
@@ -76,7 +78,9 @@ install:
 	cp AUTHORS COPYING LICENSE README THANKS TODO $(DESTDIR)/usr/share/gbackground-web/
 	cp -r share/pixmaps/gbackgroundweb.xpm $(DESTDIR)/usr/share/pixmaps/
 	cp -r share/menu/gbackgroundweb $(DESTDIR)/usr/share/menu/
-
+	cp -r share/gbackgroundweb.desktop $(DESTDIR)/usr/share/applications/	
+	cp -r share/alacarte-made.desktop $(DESTDIR)/etc/skel/.local/share/applications/
+	
 uninstall:
 
 # Aquí se deshace lo que se hizo en el install, borrando exactamente lo que
@@ -87,7 +91,8 @@ uninstall:
 	rm -rf $(DESTDIR)/usr/share/gbackground-web/
 	rm -rf $(DESTDIR)/usr/share/pixmaps/
 	rm -rf $(DESTDIR)/usr/share/menu/
-
+	rm -rf $(DESTDIR)/usr/share/applications/gbackgroundweb.desktop
+	rm -rf $(DESTDIR)/etc/skel/.local/usr/share/applications/alacarte-made.desktop
 
 clean:
 

@@ -1,0 +1,14 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Name=gbackgroundwed
+Icon=/usr/share/icons/canaima-iconos/apps/48/gnome-display-properties.png
+Name[es_VE]=Fondo institucional CNTI
+Comment=Fondo Intitucional CNTI (gbackgroundweb)
+Exec=/usr/bin/gbackground_web
+Icon[es_VE]=/usr/share/icons/canaima-iconos/apps/48/gnome-display-properties.png
+Categories=GNOME;GTK;System;Settings
+StartupNotify=true
