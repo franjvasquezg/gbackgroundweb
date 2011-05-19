@@ -67,7 +67,7 @@ install:
 	mkdir -p $(DESTDIR)/usr/share/pixmaps/
 	mkdir -p $(DESTDIR)/usr/share/menu/	
 	mkdir -p $(DESTDIR)/usr/share/applications/
-	mkdir -p $(DESTDIR)/etc/skel/.local/share/applications/
+
 
 	cp -r etc/xdg/autostart/gbackgroundweb.desktop $(DESTDIR)/etc/xdg/autostart/
 	cp -r bin/gbackground_web $(DESTDIR)/usr/bin/
@@ -79,7 +79,7 @@ install:
 	cp -r share/pixmaps/gbackgroundweb.xpm $(DESTDIR)/usr/share/pixmaps/
 	cp -r share/menu/gbackgroundweb $(DESTDIR)/usr/share/menu/
 	cp -r share/gbackgroundweb.desktop $(DESTDIR)/usr/share/applications/	
-	cp -r share/alacarte-made.desktop $(DESTDIR)/etc/skel/.local/share/applications/
+
 	
 uninstall:
 
