@@ -128,7 +128,7 @@ sub on_boton_iniciar_clicked {
 		$label_estado->set_markup("@estado[0]") if(-e $path_pid);
 		$datos_cargados->set_markup ("<span foreground=\"blue\">Datos establecidos (guardados):\n Web:<span foreground=\"red\"> $path_images</span>\nArchivo: <span foreground=\"red\">$imagen_nombre_datos</span>\nModo: <span foreground=\"red\">$cambio_definitivo</span>\nTiempo (horas):<span foreground=\"red\">$horas_dato</span></span>") if(-e $dir_datos);
 		#Esto es para ue se ejecute una sola ves
-		system("rm -f /usr/share/applications/gbackgroundweb.desktop");
+	
 }
 sub parar {
 	if(-e "$path_pid"){
