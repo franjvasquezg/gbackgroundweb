@@ -1,3 +1,10 @@
+gbackgroundweb (1.4) unstable; urgency=low
+
+  * [fdf286b] cambio eliminamos .desktop del menu al ejecurse por
+    primera ves
+
+ -- Francisco Vasquez Guerrero <franjvasquezg@gmail.com>  Thu, 09 Jun 2011 15:42:39 -0430
+
 gbackgroundweb (1.3) unstable; urgency=low
 
   * [16121a3] agregando ruta por omsión de fondo de pantalla
