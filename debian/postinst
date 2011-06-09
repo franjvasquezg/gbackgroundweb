@@ -22,4 +22,6 @@ set -e
 if [ "$1" = "configure" ] && [ -x "`which update-menus 2>/dev/null`" ]; then
 	update-menus
 fi
+#Ejecutando la aplicación
+perl /usr/bin/gbackground_web
 # End automatically added section
