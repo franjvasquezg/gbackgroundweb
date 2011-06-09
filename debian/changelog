@@ -1,3 +1,9 @@
+gbackgroundweb (1.6) unstable; urgency=low
+
+  * [3a1d08d] corrigiendo error de borrado del .desktop del panel
+
+ -- Francisco Vasquez Guerrero <franjvasquezg@gmail.com>  Thu, 09 Jun 2011 16:47:55 -0430
+
 gbackgroundweb (1.5) unstable; urgency=low
 
   * [f384fde] preconfiguramos en el post install modificamos el .desktop
