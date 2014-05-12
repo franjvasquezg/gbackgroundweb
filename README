@@ -9,7 +9,7 @@ $. / gbackground
 
 o:
 
-Gbackground $ perl
+gbackground_web $ perl
 
 Este programa fue realizado en Perl usando Gtk2
 
