@@ -22,7 +22,9 @@ $wget_cadena =~ s/\s/\ /g;
 if($tipo_de_cambio eq "Escalado ") {$tipo_de_cambio='scaled';}
 elsif ($tipo_de_cambio eq "Rellenar la Pantalla ") {$tipo_de_cambio='stretched';}
 elsif ($tipo_de_cambio eq "Fondo de Pantalla ") {$tipo_de_cambio='wallpaper';}
+elsif ($tipo_de_cambio eq "Ninguna ") {$tipo_de_cambio='none';}
 elsif ($tipo_de_cambio eq "Centrado ") {$tipo_de_cambio='centered';}
+elsif ($tipo_de_cambio eq "Ampliación ") {$tipo_de_cambio='zoom';}
 else {$tipo_de_cambio='stretched';}
 
 $segundos= $segundos * 3600;
