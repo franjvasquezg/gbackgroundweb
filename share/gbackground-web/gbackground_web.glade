@@ -142,10 +142,12 @@
                 <property name="visible">True</property>
                 <property name="wrap_width">1</property>
                 <property name="active">1</property>
-                <property name="items" translatable="yes">Escalado
+                <property name="items" translatable="yes">Ninguna
+Escalado
 Rellenar la Pantalla
 Fondo de Pantalla
-Centrado</property>
+Centrado
+Ampliaci&#xF3;n</property>
               </widget>
               <packing>
                 <property name="x">238</property>
