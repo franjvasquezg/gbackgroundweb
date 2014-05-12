@@ -11,7 +11,7 @@
     <property name="window_position">center</property>
     <property name="default_width">696</property>
     <property name="default_height">648</property>
-    <property name="icon">gbackgroundweb.xpm</property>
+    <property name="icon">gbackgroundweb.svg</property>
     <signal name="delete_event" handler="on_ventana_principal_delete_event"/>
     <child>
       <widget class="GtkVBox" id="vbox1">

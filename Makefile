@@ -74,12 +74,12 @@ install:
 	cp -r share/gbackground-web/canaima-vector-miniatura.png $(DESTDIR)/usr/share/gbackground-web/
 	cp -r share/gbackground-web/gbackgroundD_web $(DESTDIR)/usr/share/gbackground-web/
 	cp -r share/gbackground-web/gbackground_web.glade $(DESTDIR)/usr/share/gbackground-web/
-	cp -r share/gbackground-web/gbackgroundweb.xpm $(DESTDIR)/usr/share/gbackground-web/
+	cp -r share/icon/gbackgroundweb.svg $(DESTDIR)/usr/share/gbackground-web/
+	ln -s /usr/share/gbackground-web/gbackgroundweb.svg /usr/share/pixmaps/gbackgroundweb.svg
 	cp -r AUTHORS COPYING LICENSE README THANKS TODO $(DESTDIR)/usr/share/gbackground-web/
-	cp -r share/pixmaps/gbackgroundweb.xpm $(DESTDIR)/usr/share/pixmaps/
 	cp -r share/menu/gbackgroundweb $(DESTDIR)/usr/share/menu/
 	cp -r share/gbackgroundweb.desktop $(DESTDIR)/usr/share/applications/	
-
+	
 	
 uninstall:
 
