@@ -33,8 +33,8 @@ sub crear_demonio {
 		system("$wget_cadena");
 		sleep (2);
 		system("rm \"$path\"*.*.*");
-		system("gconftool-2 -t str -s /desktop/gnome/background/picture_options $tipo_de_cambio");
-		system("gconftool-2 -t str -s /desktop/gnome/background/picture_filename $imagen");
+		system("gsettings set org.gnome.desktop.background picture-options $tipo_de_cambio");
+		system("gsettings set org.gnome.desktop.background picture-uri $imagen");
 		sleep($segundos);
 	}
 }
