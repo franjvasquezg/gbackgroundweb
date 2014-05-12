@@ -1,210 +1,562 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<interface>
-  <!-- interface-requires gtk+ 3.0 -->
-  <object class="GtkWindow" id="ventana_pricipal">
-    <property name="can_focus">False</property>
+<?xml version="1.0"?>
+<glade-interface>
+  <!-- interface-requires gtk+ 2.12 -->
+  <!-- interface-naming-policy toplevel-contextual -->
+  <widget class="GtkWindow" id="ventana_principal">
+    <property name="width_request">550</property>
+    <property name="height_request">485</property>
+    <property name="visible">True</property>
+    <property name="title" translatable="yes">Gbackgroundweb - Fondo de Pantalla - Contralador Web</property>
     <property name="resizable">False</property>
     <property name="window_position">center</property>
+    <property name="default_width">696</property>
+    <property name="default_height">648</property>
+    <property name="icon">gbackgroundweb.xpm</property>
+    <signal name="delete_event" handler="on_ventana_principal_delete_event"/>
     <child>
-      <object class="GtkFixed" id="fixed1">
+      <widget class="GtkVBox" id="vbox1">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
         <child>
-          <object class="GtkMenuBar" id="menubar1">
-            <property name="width_request">100</property>
-            <property name="height_request">80</property>
+          <widget class="GtkMenuBar" id="menubar1">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <child>
-              <object class="GtkMenuItem" id="menuitem1">
-                <property name="use_action_appearance">False</property>
+              <widget class="GtkMenuItem" id="menuitem1">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <property name="label" translatable="yes">_Archivo</property>
                 <property name="use_underline">True</property>
-                <child type="submenu">
-                  <object class="GtkMenu" id="menu1">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
+                <child>
+                  <widget class="GtkMenu" id="menuitem1_menu">
                     <child>
-                      <object class="GtkSeparatorMenuItem" id="separatormenuitem1">
-                        <property name="use_action_appearance">False</property>
+                      <widget class="GtkImageMenuItem" id="exit1">
+                        <property name="label">_Salir</property>
                         <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkImageMenuItem" id="imagemenuitem5">
-                        <property name="label">gtk-quit</property>
-                        <property name="use_action_appearance">False</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
-                      </object>
+                        <signal name="activate" handler="on_salir1_activate"/>
+                      </widget>
                     </child>
-                  </object>
+                  </widget>
                 </child>
-              </object>
+              </widget>
             </child>
             <child>
-              <object class="GtkMenuItem" id="menuitem4">
-                <property name="use_action_appearance">False</property>
+              <widget class="GtkMenuItem" id="menuitem4">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Ayuda</property>
                 <property name="use_underline">True</property>
-                <child type="submenu">
-                  <object class="GtkMenu" id="menu3">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
+                <child>
+                  <widget class="GtkMenu" id="menuitem4_menu">
                     <child>
-                      <object class="GtkImageMenuItem" id="imagemenuitem10">
-                        <property name="label">gtk-about</property>
-                        <property name="use_action_appearance">False</property>
+                      <widget class="GtkImageMenuItem" id="acerca_dee">
+                        <property name="label">Acerca de</property>
                         <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
-                      </object>
+                        <signal name="activate" handler="on_acerca_de1_activate"/>
+                      </widget>
                     </child>
-                  </object>
+                  </widget>
                 </child>
-              </object>
+              </widget>
             </child>
-          </object>
+          </widget>
           <packing>
-            <property name="x">15</property>
-            <property name="y">12</property>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
           </packing>
         </child>
         <child>
-          <object class="GtkButtonBox" id="buttonbox1">
-            <property name="width_request">400</property>
-            <property name="height_request">80</property>
+          <widget class="GtkFixed" id="fixed1">
+            <property name="height_request">145</property>
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="margin_right">109</property>
-            <property name="layout_style">spread</property>
             <child>
-              <object class="GtkButton" id="button1">
-                <property name="label" translatable="yes">button</property>
-                <property name="use_action_appearance">False</property>
+              <widget class="GtkLabel" id="etiqueta_directorio">
+                <property name="width_request">130</property>
+                <property name="height_request">24</property>
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Direcci&#xF3;n Web</property>
+                <property name="justify">center</property>
+              </widget>
+              <packing>
+                <property name="x">7</property>
+                <property name="y">16</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="etiqueta_estado_del_programa">
+                <property name="width_request">144</property>
+                <property name="height_request">24</property>
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Estado del Programa</property>
+              </widget>
+              <packing>
+                <property name="x">123</property>
+                <property name="y">75</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="label_estado">
+                <property name="width_request">110</property>
+                <property name="height_request">24</property>
+                <property name="visible">True</property>
+                <property name="justify">right</property>
+              </widget>
+              <packing>
+                <property name="x">269</property>
+                <property name="y">76</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkEntry" id="url">
+                <property name="width_request">398</property>
+                <property name="height_request">24</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="use_action_appearance">False</property>
-              </object>
+                <property name="can_default">True</property>
+                <property name="width_chars">1</property>
+                <property name="text" translatable="yes">http://fondo/cnti-n.jpg</property>
+              </widget>
+              <packing>
+                <property name="x">124</property>
+                <property name="y">15</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="label1">
+                <property name="width_request">393</property>
+                <property name="height_request">21</property>
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Ejemplo: http://www.loquesea.gob.ve/fondo_institucional.png
+</property>
+              </widget>
+              <packing>
+                <property name="x">82</property>
+                <property name="y">43</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkComboBox" id="tipo_fondo">
+                <property name="width_request">180</property>
+                <property name="height_request">29</property>
+                <property name="visible">True</property>
+                <property name="wrap_width">1</property>
+                <property name="active">1</property>
+                <property name="items" translatable="yes">Escalado
+Rellenar la Pantalla
+Fondo de Pantalla
+Centrado</property>
+              </widget>
+              <packing>
+                <property name="x">238</property>
+                <property name="y">115</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="opciones_fondo">
+                <property name="width_request">167</property>
+                <property name="height_request">24</property>
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Opciones de Fondo</property>
+              </widget>
+              <packing>
+                <property name="x">91</property>
+                <property name="y">118</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="label3">
+                <property name="width_request">254</property>
+                <property name="height_request">25</property>
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">&#xBF;Cada c&#xFA;anto tiempo debo verificar?</property>
+              </widget>
+              <packing>
+                <property name="x">68</property>
+                <property name="y">161</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkSpinButton" id="horas">
+                <property name="width_request">50</property>
+                <property name="height_request">25</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="max_length">2</property>
+                <property name="adjustment">1 1 99 1 10 1</property>
+                <property name="climb_rate">1</property>
+              </widget>
+              <packing>
+                <property name="x">327</property>
+                <property name="y">161</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="label2">
+                <property name="width_request">70</property>
+                <property name="height_request">20</property>
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Hora(s)</property>
+              </widget>
+              <packing>
+                <property name="x">386</property>
+                <property name="y">164</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="etiqueta_directorio1">
+                <property name="width_request">226</property>
+                <property name="height_request">22</property>
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Nombre por defecto para el fondo</property>
+                <property name="justify">center</property>
+              </widget>
+              <packing>
+                <property name="x">28</property>
+                <property name="y">200</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkEntry" id="nombre_fondo">
+                <property name="width_request">267</property>
+                <property name="height_request">25</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="width_chars">1</property>
+                <property name="text" translatable="yes">fondo_institucional.png</property>
+              </widget>
+              <packing>
+                <property name="x">253</property>
+                <property name="y">200</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkImage" id="image4">
+                <property name="width_request">282</property>
+                <property name="height_request">61</property>
+                <property name="visible">True</property>
+                <property name="pixbuf">canaima-vector-miniatura.png</property>
+                <property name="icon-size">9</property>
+              </widget>
+              <packing>
+                <property name="x">140</property>
+                <property name="y">341</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkHSeparator" id="hseparator1">
+                <property name="width_request">556</property>
+                <property name="height_request">26</property>
+                <property name="visible">True</property>
+              </widget>
+              <packing>
+                <property name="y">230</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkLabel" id="label_configuracion">
+                <property name="width_request">509</property>
+                <property name="height_request">95</property>
+                <property name="visible">True</property>
+                <property name="justify">center</property>
+                <property name="selectable">True</property>
+              </widget>
+              <packing>
+                <property name="x">27</property>
+                <property name="y">249</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkHButtonBox" id="hbuttonbox1">
+            <property name="visible">True</property>
+            <property name="homogeneous">True</property>
+            <property name="layout_style">center</property>
+            <child>
+              <widget class="GtkButton" id="boton_iniciar">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="has_focus">True</property>
+                <property name="can_default">True</property>
+                <property name="receives_default">False</property>
+                <property name="xalign">1</property>
+                <signal name="clicked" handler="on_boton_iniciar_clicked"/>
+                <child>
+                  <widget class="GtkAlignment" id="alignment1">
+                    <property name="visible">True</property>
+                    <property name="xscale">0</property>
+                    <property name="yscale">0</property>
+                    <child>
+                      <widget class="GtkHBox" id="hbox1">
+                        <property name="visible">True</property>
+                        <property name="spacing">2</property>
+                        <child>
+                          <widget class="GtkImage" id="image1">
+                            <property name="visible">True</property>
+                            <property name="stock">gtk-ok</property>
+                          </widget>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkLabel" id="etiqueta_iniciar">
+                            <property name="visible">True</property>
+                            <property name="label" translatable="yes">Aceptar</property>
+                            <property name="use_underline">True</property>
+                          </widget>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                      </widget>
+                    </child>
+                  </widget>
+                </child>
+              </widget>
               <packing>
                 <property name="expand">False</property>
-                <property name="fill">True</property>
+                <property name="fill">False</property>
+                <property name="padding">6</property>
                 <property name="position">0</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="button2">
-                <property name="label" translatable="yes">button</property>
-                <property name="use_action_appearance">False</property>
+              <widget class="GtkButton" id="boton_salir">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="use_action_appearance">False</property>
-              </object>
+                <property name="can_default">True</property>
+                <property name="receives_default">False</property>
+                <signal name="clicked" handler="on_boton_salir_clicked"/>
+                <child>
+                  <widget class="GtkAlignment" id="alignment3">
+                    <property name="visible">True</property>
+                    <property name="xscale">0</property>
+                    <property name="yscale">0</property>
+                    <child>
+                      <widget class="GtkHBox" id="hbox3">
+                        <property name="visible">True</property>
+                        <property name="spacing">2</property>
+                        <child>
+                          <widget class="GtkImage" id="image3">
+                            <property name="visible">True</property>
+                            <property name="stock">gtk-quit</property>
+                          </widget>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkLabel" id="etiqueta_salir">
+                            <property name="visible">True</property>
+                            <property name="label" translatable="yes">Salir</property>
+                            <property name="use_underline">True</property>
+                          </widget>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                      </widget>
+                    </child>
+                  </widget>
+                </child>
+              </widget>
               <packing>
                 <property name="expand">False</property>
-                <property name="fill">True</property>
+                <property name="fill">False</property>
                 <property name="position">1</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="button3">
-                <property name="label" translatable="yes">button</property>
-                <property name="use_action_appearance">False</property>
+              <widget class="GtkButton" id="boton_parar">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="use_action_appearance">False</property>
-              </object>
+                <property name="can_default">True</property>
+                <property name="receives_default">False</property>
+                <signal name="clicked" handler="on_boton_parar_clicked"/>
+                <child>
+                  <widget class="GtkAlignment" id="alignment2">
+                    <property name="visible">True</property>
+                    <property name="xscale">0</property>
+                    <property name="yscale">0</property>
+                    <child>
+                      <widget class="GtkHBox" id="hbox2">
+                        <property name="visible">True</property>
+                        <property name="spacing">2</property>
+                        <child>
+                          <widget class="GtkImage" id="image2">
+                            <property name="visible">True</property>
+                            <property name="stock">gtk-dialog-error</property>
+                          </widget>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <widget class="GtkLabel" id="etiqueta_parar">
+                            <property name="visible">True</property>
+                            <property name="label" translatable="yes">Detener</property>
+                            <property name="use_underline">True</property>
+                          </widget>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">False</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                      </widget>
+                    </child>
+                  </widget>
+                </child>
+              </widget>
               <packing>
                 <property name="expand">False</property>
-                <property name="fill">True</property>
+                <property name="fill">False</property>
                 <property name="position">2</property>
               </packing>
             </child>
-          </object>
+          </widget>
           <packing>
-            <property name="x">30</property>
-            <property name="y">407</property>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">2</property>
           </packing>
         </child>
         <child>
-          <object class="GtkEntry" id="url">
-            <property name="width_request">120</property>
-            <property name="height_request">30</property>
+          <widget class="GtkStatusbar" id="statusbar1">
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="invisible_char">●</property>
-            <property name="text" translatable="yes">http://fondo/cnti-n.jpg</property>
-            <property name="input_purpose">alpha</property>
-          </object>
+          </widget>
           <packing>
-            <property name="x">159</property>
-            <property name="y">103</property>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">3</property>
           </packing>
         </child>
-        <child>
-          <object class="GtkLabel" id="etiqueta_directorio">
-            <property name="width_request">100</property>
-            <property name="height_request">30</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Dirección Web</property>
-          </object>
-          <packing>
-            <property name="x">39</property>
-            <property name="y">103</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel" id="label1">
-            <property name="width_request">100</property>
-            <property name="height_request">25</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Ejemplo: http://www.canaima.gob.ve/fondo_institucional</property>
-          </object>
-          <packing>
-            <property name="x">43</property>
-            <property name="y">141</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel" id="etiquete_estado_del_programa">
-            <property name="width_request">100</property>
-            <property name="height_request">25</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Estado del Programa</property>
-          </object>
-          <packing>
-            <property name="x">43</property>
-            <property name="y">195</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel" id="label_estado">
-            <property name="width_request">220</property>
-            <property name="height_request">25</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="justify">right</property>
-          </object>
-          <packing>
-            <property name="x">189</property>
-            <property name="y">196</property>
-          </packing>
-        </child>
-      </object>
+      </widget>
     </child>
-  </object>
-</interface>
+  </widget>
+  <widget class="GtkAboutDialog" id="acerca_de">
+    <property name="border_width">5</property>
+    <property name="title" translatable="yes">Acerca de Glade</property>
+    <property name="resizable">False</property>
+    <property name="modal">True</property>
+    <property name="window_position">center</property>
+    <property name="type_hint">dialog</property>
+    <property name="program_name">Fondo Institucional</property>
+    <property name="copyright" translatable="yes">Copyriht 2014</property>
+    <property name="comments" translatable="yes">(gbackgroundweb 2.0)
+Programa para cambiar el fondo de gnome.
+
+Originalmente escrito por: 
+Alejandro Garrido Mota &lt;garridomota@gmail.com&gt;
+
+Modificado por: 
+Francisco J. V&#xE1;squez Guerrero &lt;franjvasquezg@gmail.com&gt;
+Carlos David Marrero &lt;cdmarrero2040@gmail.com&gt;
+</property>
+    <property name="website">Programa para cambiar el fondo de gnome.</property>
+    <property name="website_label" translatable="yes">Fondo Institucional</property>
+    <property name="license" translatable="yes">GBACKGROUNDWEB program. A program to periodicly change the gnome background
+Copyright (C) 2014, Francisco J. V&#xE1;squez Guerrero
+
+GBACKGROUNDWEB program. A program to periodicly change the gnome background
+Copyright (C) 2009, Carlos David Marrero
+
+GBACKGROUND program. A program to periodicly change the gnome background
+Copyright (C) 2006, Alejandro Garrido Mota www.mogaal.com/gbackground
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+Alejandro Garrido Mota, VE
+&lt;garridomota@gmail.com&gt; &lt;mogaal@chaslug.org.ve&gt;
+www.mogaal.com
+</property>
+    <property name="authors">Alejandro Garrido Mota &lt;garridomota@gmail.com&gt;
+Carlos David Marrero &lt;cdmarrero2040@gmail.com&gt;
+Francisco J. V&#xE1;squez Guerrero &lt;franjvasquezg@gmail.com&gt;</property>
+    <signal name="close" handler="on_acerca_de_close"/>
+    <signal name="delete_event" handler="on_acerca_de_delete_event"/>
+    <signal name="response" handler="on_acerca_de_response"/>
+    <child internal-child="vbox">
+      <widget class="GtkVBox" id="dialog-vbox2">
+        <property name="visible">True</property>
+        <property name="spacing">2</property>
+        <child>
+          <placeholder/>
+        </child>
+        <child internal-child="action_area">
+          <widget class="GtkHButtonBox" id="dialog-action_area2">
+            <property name="visible">True</property>
+            <property name="layout_style">end</property>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="GtkFileChooserDialog" id="file_chosse">
+    <property name="width_request">647</property>
+    <property name="height_request">403</property>
+    <property name="border_width">5</property>
+    <property name="title" translatable="yes">Select Directory</property>
+    <property name="window_position">center-on-parent</property>
+    <property name="type_hint">dialog</property>
+    <property name="action">select-folder</property>
+    <child internal-child="vbox">
+      <widget class="GtkVBox" id="dialog-vbox3">
+        <property name="visible">True</property>
+        <property name="spacing">2</property>
+        <child>
+          <placeholder/>
+        </child>
+        <child internal-child="action_area">
+          <widget class="GtkHButtonBox" id="dialog-action_area3">
+            <property name="visible">True</property>
+            <property name="layout_style">end</property>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</glade-interface>
