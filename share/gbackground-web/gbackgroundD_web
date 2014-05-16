@@ -36,6 +36,7 @@ sub crear_demonio {
 		sleep (2);
 		system("rm \"$path\"*.*.*");
 		system("gsettings set org.gnome.desktop.background picture-options $tipo_de_cambio");
+		$imagen="file://$imagen";
 		system("gsettings set org.gnome.desktop.background picture-uri $imagen");
 		sleep($segundos);
 	}
