@@ -75,7 +75,7 @@ install:
 	cp -r share/gbackground-web/gbackgroundD_web $(DESTDIR)/usr/share/gbackground-web/
 	cp -r share/gbackground-web/gbackground_web.glade $(DESTDIR)/usr/share/gbackground-web/
 	cp -r share/icon/gbackgroundweb.svg $(DESTDIR)/usr/share/gbackground-web/
-	ln -s /usr/share/gbackground-web/gbackgroundweb.svg /usr/share/pixmaps/gbackgroundweb.svg
+	ln -s /usr/share/gbackground-web/gbackgroundweb.svg $(DESTDIR)/usr/share/pixmaps/gbackgroundweb.svg
 	cp -r AUTHORS COPYING LICENSE README THANKS TODO $(DESTDIR)/usr/share/gbackground-web/
 	cp -r share/menu/gbackgroundweb $(DESTDIR)/usr/share/menu/
 	cp -r share/gbackgroundweb.desktop $(DESTDIR)/usr/share/applications/	
