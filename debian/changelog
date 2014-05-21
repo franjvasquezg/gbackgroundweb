@@ -1,3 +1,29 @@
+gbackgroundweb (2.0) unstable; urgency=low
+
+  [ Francisco Javier Vásquez Guerrero ]
+  * [0fa8de8] nueva rama para versión para canaima con gnome3
+  * [8b4864c] rama de gnome2
+  * [579f90d] modificando a gsettings para gnome3
+  * [c7e5ddc] actualiado configuración para gnome3 y nueva IDE de gbackground_web.glade
+  * [f7e34b3] nuevas llaves de gnome3 gbackgroundD_web
+  * [e40d04c] actualizada Creditos y Autores
+  * [32a4c30] actualizando opciones del fondo de pantalla
+  * [111de75] actualización nuevo icono
+
+  * [ff2a274] actualización
+
+  * [aecf650] actualización de datos en el archivo control
+  * [4ef5525] nuevo año en COPYING
+
+  * [150c78e] error en el elnace simbolico
+  * [0ed0013] cambio en la variable imagen
+
+  * [7791cdb] cambiando ruta de ejecusión EXEC
+
+  * [24f7a03] corrigiendo la lógica
+
+ -- Francisco J. Vásquez Guerrero franjvasquezg@gmail.com>  Wed, 21 May 2014 18:56:07-0430
+
 gbackgroundweb (1.6) unstable; urgency=low
 
   * [3a1d08d] corrigiendo error de borrado del .desktop del panel
