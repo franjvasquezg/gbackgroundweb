@@ -28,6 +28,7 @@ elsif ($tipo_de_cambio eq "Ampliación ") {$tipo_de_cambio='zoom';}
 else {$tipo_de_cambio='stretched';}
 
 $segundos= $segundos * 3600;
+$imagen="file://$imagen";
 
 sub crear_demonio {
 	$configurando_pid = Proc::PID::File->running(dir => "$path", name => "gbackground_web" );
@@ -36,7 +37,6 @@ sub crear_demonio {
 		sleep (2);
 		system("rm \"$path\"*.*.*");
 		system("gsettings set org.gnome.desktop.background picture-options $tipo_de_cambio");
-		$imagen="file://$imagen";
 		system("gsettings set org.gnome.desktop.background picture-uri $imagen");
 		sleep($segundos);
 	}
