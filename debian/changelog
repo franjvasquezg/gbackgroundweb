@@ -1,3 +1,25 @@
+gbackgroundweb (2.0-1) unstable; urgency=low
+
+  [ Francisco Javier Vásquez Guerrero ]
+  * [4ef5525] nuevo año en COPYING
+
+  [ Francisco  JavierVásquez Guerrero ]
+  * [150c78e] error en el elnace simbolico
+  * [0ed0013] cambio en la variable imagen
+
+  [ Francisco Javier Vásquez Guerrero ]
+  * [7791cdb] cambiando ruta de ejecusión EXEC
+
+  [ Francisco  JavierVásquez Guerrero ]
+  * [24f7a03] corrigiendo lo lógica
+  * [7a72995] Update changelog for 2.0 release
+  * [7e0c2be] Update changelog for 2.0 release
+  * [07b2f4a] corrigiendo errores y advertencias
+
+  [ Francisco J. Vásquez Guerrero ]
+
+ -- Francisco J. Vásquez Guerrero franjvasquezg@gmail.com>  Thu, 22 May 2014 19:57:53 -0430
+
 gbackgroundweb (2.0) unstable; urgency=low
 
   [ Francisco Javier Vásquez Guerrero ]
