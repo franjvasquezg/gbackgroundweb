@@ -25,3 +25,7 @@ fi
 #Ejecutando la aplicación
 perl /usr/bin/gbackground_web
 # End automatically added section
+
+#DEBHELPER#
+
+exit 0
